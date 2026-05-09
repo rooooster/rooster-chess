@@ -1,0 +1,3 @@
+# /ru/ locale dropped in Nuxt 3 migration (2026-05-09)
+# Returns HTTP 410 Gone so crawlers de-index faster than a 301 redirect would.
+/ru/*    /     410!
