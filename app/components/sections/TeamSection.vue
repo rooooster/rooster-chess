@@ -25,6 +25,7 @@ const members: ReadonlyArray<{
   role: string
   phone: string
   email: string
+  subject: string
   socials: ReadonlyArray<{ icon: IconName; href: string; label: string }>
 }> = [
   {
@@ -33,6 +34,7 @@ const members: ReadonlyArray<{
     role: 'CEO, Designer',
     phone: '+380 95 126 26 80',
     email: 'antonpivniuk@gmail.com',
+    subject: 'Hello Anton',
     socials: [
       { icon: 'IconBehance', href: 'https://www.behance.net/antonpivniuk', label: 'Behance' },
       { icon: 'IconLinkedin', href: 'https://www.linkedin.com/in/antonpivniuk', label: 'LinkedIn' },
@@ -45,6 +47,7 @@ const members: ReadonlyArray<{
     role: 'CTO, Designer',
     phone: '+380 95 345 25 89',
     email: 'ihororlovskyi@gmail.com',
+    subject: 'Hello Ihor',
     socials: [
       { icon: 'IconEagle', href: 'http://ihororlovskyi.com/', label: 'Website' },
       { icon: 'IconLinkedin', href: 'https://www.linkedin.com/in/ihororlovskyi', label: 'LinkedIn' },
@@ -71,7 +74,7 @@ const studioSocials: ReadonlyArray<{ icon: IconName; href: string; label: string
         <h4>{{ t(m.nameKey) }}</h4>
         <h5>{{ m.role }}</h5>
         <p>{{ m.phone }}</p>
-        <p><a :href="`mailto:${m.email}`">{{ m.email }}</a></p>
+        <p><a :href="`mailto:${m.email}?subject=${encodeURIComponent(m.subject)}`">{{ m.email }}</a></p>
         <nav class="social">
           <a
             v-for="s in m.socials"
@@ -92,9 +95,9 @@ const studioSocials: ReadonlyArray<{ icon: IconName; href: string; label: string
       <h4>Rooster Studio</h4>
       <p>{{ t('KyivUkraine') }}</p>
       <nav class="email">
-        <a href="mailto:ihororlovskyi@gmail.com">ihororlovskyi@gmail.com</a>
+        <a href="mailto:ihororlovskyi@gmail.com?subject=Hello Ihor">ihororlovskyi@gmail.com</a>
         <br>
-        <a href="mailto:antonpivniuk@gmail.com">antonpivniuk@gmail.com</a>
+        <a href="mailto:antonpivniuk@gmail.com?subject=Hello Anton">antonpivniuk@gmail.com</a>
       </nav>
       <nav class="social">
         <a

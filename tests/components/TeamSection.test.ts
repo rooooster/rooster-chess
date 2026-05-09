@@ -50,6 +50,7 @@ describe('TeamSection', () => {
     const text = wrapper.html()
     expect(text).toContain('mailto:antonpivniuk@gmail.com')
     expect(text).toContain('mailto:ihororlovskyi@gmail.com')
+    expect(text).toContain('subject=Hello%20Anton')
   })
 
   it('renders the studio buy block with 3 social anchors', () => {
