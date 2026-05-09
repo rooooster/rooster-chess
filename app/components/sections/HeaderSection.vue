@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const { t } = useI18n()
+const activeId = useScrollSpy(['hero', 'table', 'figures', 'game', 'team'])
 </script>
 
 <template>
@@ -18,19 +19,19 @@ const { t } = useI18n()
 
     <nav id="anhors" class="anhors anhors-static">
       <a href="#hero" class="page-scroll" aria-label="hero" />
-      <a href="#table" class="page-scroll">
+      <a href="#table" class="page-scroll" :class="{ active: activeId === 'table' }">
         <span class="icon-table" aria-hidden="true" />
         <p>{{ t('Table') }}</p>
       </a>
-      <a href="#figures" class="page-scroll">
+      <a href="#figures" class="page-scroll" :class="{ active: activeId === 'figures' }">
         <span class="icon-knight-right" aria-hidden="true" />
         <p>{{ t('ChessPieces') }}</p>
       </a>
-      <a href="#game" class="page-scroll">
+      <a href="#game" class="page-scroll" :class="{ active: activeId === 'game' }">
         <span class="icon-swords" aria-hidden="true" />
         <p>{{ t('Game') }}</p>
       </a>
-      <a href="#team" class="page-scroll">
+      <a href="#team" class="page-scroll" :class="{ active: activeId === 'team' }">
         <span class="icon-rook-right" aria-hidden="true" />
         <p>{{ t('Team') }}</p>
       </a>

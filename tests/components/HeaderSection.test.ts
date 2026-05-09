@@ -1,10 +1,11 @@
 import { describe, it, expect, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { computed, defineComponent } from 'vue'
+import { computed, defineComponent, ref } from 'vue'
 import HeaderSection from '../../app/components/sections/HeaderSection.vue'
 
 vi.stubGlobal('useI18n', () => ({ t: (k: string) => k }))
 vi.stubGlobal('computed', computed)
+vi.stubGlobal('useScrollSpy', () => ref(null))
 
 const NuxtImgStub = defineComponent({
   props: ['src', 'alt'],
