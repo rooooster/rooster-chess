@@ -16,12 +16,21 @@ describe('pages/home.vue', () => {
     expect(wrapper.find('h1').text()).toBe('Rooster Studio')
   })
 
-  it('lists at least 4 portfolio entries under Sites', () => {
+  it('lists working portfolio entries under Sites', () => {
     const wrapper = mount(HomePage, { global: { stubs: { NuxtLink: NuxtLinkStub } } })
     const text = wrapper.text()
     expect(text).toContain("God's Chess")
-    expect(text).toContain('Skoryk Competition 2016')
-    expect(text).toContain('Monte Carlo Riviera')
+    expect(text).toContain('Rooster Studio archive')
     expect(text).toContain('Nebo Event Management Agency')
+  })
+
+  it('does not link to dead domains', () => {
+    const wrapper = mount(HomePage, { global: { stubs: { NuxtLink: NuxtLinkStub } } })
+    const html = wrapper.html()
+    expect(html).not.toContain('skoryk-competition.com')
+    expect(html).not.toContain('mcriviera.com')
+    expect(html).not.toContain('rooooster.com/lehrplattform')
+    expect(html).not.toContain('rooooster.com/luckylabs')
+    expect(html).not.toContain('rooooster.com/wish-happy')
   })
 })

@@ -29,22 +29,16 @@ interface Entry {
 }
 
 const sites: Entry[] = [
-  { label: "God's Chess", href: 'http://rooooster.com', linkText: 'rooooster.com' },
-  { label: 'Skoryk Competition 2016', href: 'http://skoryk-competition.com', linkText: 'skoryk-competition.com' },
-  { label: 'Monte Carlo Riviera', href: 'http://mcriviera.com', linkText: 'mcriviera.com' },
-  { label: 'Nebo Event Management Agency', href: 'http://nebo.ua', linkText: 'nebo.ua' }
+  { label: "God's Chess", href: 'https://rooster-chess.netlify.app/', linkText: 'rooster-chess.netlify.app' },
+  { label: 'Rooster Studio archive', href: 'http://rooooster.com', linkText: 'rooooster.com' },
+  { label: 'Nebo Event Management Agency', href: 'https://nebo.ua', linkText: 'nebo.ua' }
 ]
 
 const branding: Entry[] = [
   { label: 'Nebo Event Management Agency', href: 'https://www.facebook.com/NEBO.events.management', linkText: 'logo' },
-  { label: 'Wish Happy', href: 'http://rooooster.com/wish-happy', linkText: 'logo' },
+  { label: 'Wish Happy', href: 'https://www.facebook.com/wishhappy', linkText: 'logo' },
   { label: 'Академія Кодування', href: 'https://www.facebook.com/uacodeacademy', linkText: 'logo' },
   { label: 'Bigcitymom', href: 'https://www.facebook.com/bigcitymom', linkText: 'logo' }
-]
-
-const animation: Entry[] = [
-  { label: 'Lehrplattform', href: 'http://rooooster.com/lehrplattform', linkText: 'page' },
-  { label: 'Luckylabs', href: 'http://rooooster.com/luckylabs', linkText: 'page' }
 ]
 </script>
 
@@ -68,14 +62,6 @@ const animation: Entry[] = [
     <div v-for="(b, i) in branding" :key="`brand-${i}`" class="flex justify-between border-b border-current/10 py-1.5">
       <span>{{ b.label }}</span>
       <a :href="b.href" target="_blank" rel="noopener" class="underline">{{ b.linkText }}</a>
-    </div>
-
-    <hr class="my-8 border-current/20" />
-
-    <h3 class="text-2xl font-semibold mb-3">Animation &amp; Fun</h3>
-    <div v-for="(a, i) in animation" :key="`anim-${i}`" class="flex justify-between border-b border-current/10 py-1.5">
-      <span>{{ a.label }}</span>
-      <a :href="a.href" target="_blank" rel="noopener" class="underline">{{ a.linkText }}</a>
     </div>
   </main>
 </template>
