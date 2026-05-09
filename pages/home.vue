@@ -1,8 +1,6 @@
 <script setup lang="ts">
-definePageMeta({
-  // Single-language portfolio page; opt out of @nuxtjs/i18n routing.
-  i18n: false
-})
+// Single-language portfolio page; opt out of @nuxtjs/i18n routing.
+defineI18nRoute(false)
 
 const siteUrl = 'https://rooster-chess.netlify.app'
 

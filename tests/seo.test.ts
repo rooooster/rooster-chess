@@ -30,11 +30,13 @@ describe('SEO config (static)', () => {
     expect(idx).toContain("hreflang: 'x-default'")
   })
 
-  it('built sitemap.xml after build contains all 4 URLs (skipped if not built)', () => {
+  it('built sitemap.xml after build contains 4 URLs (skipped if not built)', () => {
     const file = resolve(root, '.output/public/sitemap.xml')
     if (!existsSync(file)) return
     const xml = readFileSync(file, 'utf8')
-    for (const path of ['/', '/ua/', '/pl/', '/home/']) {
+    const locs = xml.match(/<loc>[^<]+<\/loc>/g) ?? []
+    expect(locs).toHaveLength(4)
+    for (const path of ['/', '/ua', '/pl', '/home']) {
       expect(xml).toContain(`https://rooster-chess.netlify.app${path}`)
     }
   })

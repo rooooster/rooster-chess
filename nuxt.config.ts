@@ -8,6 +8,9 @@ export default defineNuxtConfig({
     name: 'Rooster Studio'
   },
   sitemap: {
+    sitemaps: false,
+    autoI18n: false,
+    excludeAppSources: true,
     urls: [
       { loc: '/', changefreq: 'monthly', priority: 1.0 },
       { loc: '/ua/', changefreq: 'monthly', priority: 0.9 },
