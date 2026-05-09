@@ -11,6 +11,11 @@ export default defineNuxtConfig({
   image: {
     provider: 'ipx',
   },
+  nitro: {
+    routeRules: {
+      '/home': { redirect: '/home/' },
+    },
+  },
   i18n: {
     locales: [
       { code: 'en', iso: 'en-US', file: 'en.json' },
