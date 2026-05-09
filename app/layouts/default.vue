@@ -11,9 +11,9 @@ useHead({
     <header class="p-4 flex justify-end">
       <LocaleSwitcher />
     </header>
-    <main class="flex-1">
+    <div class="flex-1">
       <slot />
-    </main>
+    </div>
     <footer class="p-4 text-center text-sm text-gray-500">
       &copy;2026 Rooster Studio
     </footer>
