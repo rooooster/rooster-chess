@@ -9,7 +9,6 @@ export default defineNuxtConfig({
   },
   image: {
     provider: 'ipx',
-    formats: ['webp', 'avif', 'jpeg'],
   },
   i18n: {
     locales: [
