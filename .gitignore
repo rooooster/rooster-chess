@@ -1,13 +1,13 @@
 # Nuxt dev/build outputs
-.output
-.data
-.nuxt
+.nuxt/
+.output/
+.data/
+.cache/
 .nitro
-.cache
-dist
+dist/
 
 # Node dependencies
-node_modules
+node_modules/
 
 # Logs
 logs
@@ -22,11 +22,6 @@ logs
 .env
 .env.*
 !.env.example
-
-# Legacy Jekyll outputs
-/_site/
-assets/css/
-assets/js/
 
 # Claude
 /.claude

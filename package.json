@@ -2,6 +2,7 @@
   "name": "rooster-chess",
   "type": "module",
   "private": true,
+  "version": "1.0.0",
   "scripts": {
     "build": "nuxt generate",
     "dev": "nuxt dev",

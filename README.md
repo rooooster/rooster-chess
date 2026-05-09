@@ -1,75 +1,25 @@
-# Nuxt Minimal Starter
+# Rooster Chess
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+Marketing site for Rooster Studio's God's Chess product.
 
-## Setup
+## Stack
+- Nuxt 4 + Vue 3 + TypeScript
+- Tailwind CSS v3
+- @nuxtjs/i18n (en / ua / pl)
+- @nuxt/image (ipx provider)
+- @nuxtjs/sitemap + @nuxtjs/robots
+- Vitest + @vue/test-utils for tests
 
-Make sure to install dependencies:
+## Scripts
+- `pnpm install` — install dependencies
+- `pnpm dev` — start dev server at http://localhost:3000
+- `pnpm test` — run unit tests (Vitest)
+- `pnpm typecheck` — run vue-tsc --noEmit
+- `pnpm build` — generate static site (alias for `nuxt generate`)
+- `pnpm preview` — preview the generated `.output/public/`
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Deploy
+- Hosting: Netlify (existing site)
+- Build command: `pnpm build`
+- Publish directory: `.output/public`
+- Static redirects in `public/_redirects` (e.g., `/ru/*` → 410 Gone)
