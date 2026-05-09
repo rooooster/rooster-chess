@@ -2,7 +2,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-05-09',
   devtools: { enabled: true },
   ssr: true,
-  modules: [],
+  modules: ['@nuxtjs/tailwindcss'],
+  css: ['~/app/css/main.css'],
+  tailwindcss: {
+    cssPath: '~/app/css/main.css',
+    configPath: '~/tailwind.config.ts'
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'en' },
