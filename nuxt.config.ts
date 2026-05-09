@@ -2,14 +2,21 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/robots'],
   components: [{ path: '~/components', pathPrefix: false }],
+  site: {
+    url: 'https://rooster-chess.netlify.app',
+    name: 'Rooster Studio',
+  },
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: '~~/tailwind.config.ts',
   },
   image: {
     provider: 'ipx',
+  },
+  sitemap: {
+    exclude: ['/ua/home', '/pl/home'],
   },
   nitro: {
     routeRules: {
