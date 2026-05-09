@@ -1,21 +1,23 @@
 {
+  "name": "rooster-chess",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "typecheck": "vue-tsc --noEmit",
+    "test": "vitest run"
+  },
   "dependencies": {
-    "coriolan-ui": "^0.1.19",
-    "normalize.css": "^7.0.0"
+    "nuxt": "^4.4.4",
+    "vue": "^3.5.33",
+    "vue-router": "^5.0.6"
   },
   "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-plumber": "^1.1.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0",
-    "require-dir": "^0.3.2"
-  },
-  "scripts": {
-    "clean": "rm -rf _site/; rm -rf assets/js/; rm -rf assets/css/",
-    "develop": "npm run clean; gulp watch",
-    "build": "npm run clean; gulp"
+    "typescript": "^6.0.3",
+    "vue-tsc": "^3.2.8"
   }
 }
