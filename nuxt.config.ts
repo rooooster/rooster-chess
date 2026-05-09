@@ -2,7 +2,23 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-05-09',
   devtools: { enabled: true },
   ssr: true,
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', '@nuxtjs/sitemap', '@nuxtjs/robots'],
+  site: {
+    url: 'https://rooster-chess.netlify.app',
+    name: 'Rooster Studio'
+  },
+  sitemap: {
+    urls: [
+      { loc: '/', changefreq: 'monthly', priority: 1.0 },
+      { loc: '/ua/', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/pl/', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/home/', changefreq: 'yearly', priority: 0.5 }
+    ],
+    autoLastmod: true
+  },
+  robots: {
+    sitemap: ['/sitemap.xml']
+  },
   image: {
     provider: 'ipx',
     format: ['webp', 'avif', 'jpeg']

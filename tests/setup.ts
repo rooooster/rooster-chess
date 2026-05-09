@@ -41,6 +41,7 @@ g.useHead = vi.fn(() => undefined)
 g.useSeoMeta = vi.fn(() => undefined)
 g.useState = (_key: string, init?: () => unknown) => ref(init?.())
 g.definePageMeta = vi.fn()
+g.defineNuxtConfig = (cfg: Record<string, unknown>) => cfg
 
 export const __testHelpers = {
   setLocale(code: string) {
