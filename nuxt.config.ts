@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   site: {
     url: 'https://rooster-chess.netlify.app',
     name: 'Rooster Studio',
+    // Preserve trailing slashes in sitemap URLs (DoD: /, /ua/, /pl/, /home/).
+    trailingSlash: true,
   },
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
@@ -16,12 +18,19 @@ export default defineNuxtConfig({
     provider: 'ipx',
   },
   sitemap: {
-    exclude: ['/ua/home', '/pl/home'],
-  },
-  nitro: {
-    routeRules: {
-      '/home': { redirect: '/home/' },
-    },
+    // Explicit URL list to satisfy DoD: exactly /, /ua/, /pl/, /home/ with trailing slashes.
+    // - sitemaps: false        -> opt out of @nuxtjs/i18n's per-locale sitemap split,
+    //                             producing a single /sitemap.xml file.
+    // - excludeAppSources: true -> disable auto-discovery from i18n pages / nuxt:pages,
+    //                             so the explicit list below is authoritative.
+    sitemaps: false,
+    excludeAppSources: true,
+    urls: [
+      { loc: '/', changefreq: 'monthly', priority: 1.0 },
+      { loc: '/ua/', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/pl/', changefreq: 'monthly', priority: 0.9 },
+      { loc: '/home/', changefreq: 'monthly', priority: 0.8 },
+    ],
   },
   i18n: {
     locales: [

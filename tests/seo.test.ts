@@ -19,6 +19,13 @@ describe('SEO config', () => {
   it('sets site.url to the production URL', () => {
     expect(config).toMatch(/site\s*:\s*\{[^}]*url\s*:\s*['"]https:\/\/rooster-chess\.netlify\.app['"]/s)
   })
+
+  it('configures sitemap with an explicit urls list', () => {
+    expect(config).toMatch(/urls\s*:/)
+    for (const path of ['/', '/ua/', '/pl/', '/home/']) {
+      expect(config).toContain(`loc: '${path}'`)
+    }
+  })
 })
 
 describe.skipIf(!isFile(resolve(root, '.output/public/sitemap.xml')))('SEO build artifacts', () => {
