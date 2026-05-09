@@ -2,7 +2,11 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-05-09',
   devtools: { enabled: true },
   ssr: true,
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image'],
+  image: {
+    provider: 'ipx',
+    format: ['webp', 'avif', 'jpeg']
+  },
   css: ['~/app/css/main.css'],
   tailwindcss: {
     cssPath: '~/app/css/main.css',
