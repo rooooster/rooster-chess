@@ -25,7 +25,7 @@ languages_dropped: [ru]
 | SEO | `useSeoMeta` per page, `@nuxtjs/sitemap`, `@nuxtjs/robots`, hreflang for all locales |
 | Tests | Vitest + Vue Test Utils for components; integration test for sitemap & i18n |
 | Hosting | Netlify (existing site, static deploy) |
-| Analytics | TBD — handled in Task 14 (UA-66287816-1 is dead since 2023; Yandex Metrika is RU) |
+| Analytics | **14a: remove both** UA-66287816-1 (dead since July 2023) and Yandex Metrika 38630140 (RU service). Site ships without analytics. GA4 can be added in a future PR. |
 | Visual styles | Tailwind for layout/utility; scoped `<style>` for decorative elements |
 | Content | Light refresh of `home.md` portfolio + chess taglines per "новий вдох без фанатизму" — Task 12 |
 
@@ -297,21 +297,20 @@ languages_dropped: [ru]
 
 ---
 
-### Task 14 — Analytics decision
+### Task 14 — Analytics: remove both UA + Yandex
 
-**Goal:** decommission dead/RU trackers; add modern alternative or no-op.
+**Goal:** decommission dead/RU trackers. Site ships without analytics. GA4 can be added in a future PR.
 
-**Status:** USER DECISION REQUIRED during plan review. Three options:
+**Decision (locked):** option 14a — remove both Universal Analytics (`UA-66287816-1`, dead since July 2023) and Yandex Metrika (`38630140`, RU service, inappropriate for UA brand in 2026).
 
-**Option 14a (recommended):** remove both Universal Analytics (dead since July 2023) and Yandex Metrika (RU service, anachronistic for UA brand in 2026). Add stub `components/Analytics.vue` that does nothing. Commit message lists what was removed.
+**Steps:**
+1. Verify no Analytics-related modules in `nuxt.config.ts`
+2. Verify no `<script>` injection via `useHead` referencing analytics
+3. Search-and-confirm: no occurrences of `yandex`, `mc.yandex.ru`, `UA-66287816`, `googletagmanager` in repo (excluding `docs/`, `legacy/`)
 
-**Option 14b:** add Google Analytics 4 (GA4). User must provide `G-XXXXXXX` measurement ID. Wire via `useHead` injecting `<script src="https://www.googletagmanager.com/gtag/js?id=...">`.
+**Test:** `tests/analytics.test.ts` — assert no `yandex`, no `mc.yandex.ru`, no `UA-` literal anywhere in `pages/`, `components/`, `layouts/`, `app.vue`, `nuxt.config.ts`.
 
-**Option 14c:** preserve dead UA tag inertia + remove Yandex only. Pragmatic if user fears breaking some downstream tool that polls UA endpoint (unlikely in 2026).
-
-**Test:** `tests/analytics.test.ts` — assert no `yandex`, no `mc.yandex.ru`, no `UA-` literal in built output.
-
-**Commit:** `chore(analytics): <one of: remove all / add GA4 G-XXX / remove Yandex only>`
+**Commit:** `chore(analytics): drop dead UA tracker and Yandex Metrika`
 
 ---
 
