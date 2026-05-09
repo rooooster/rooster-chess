@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@nuxt/image": "^2.0.0",
-    "@nuxtjs/i18n": "^10.3.0"
+    "@nuxtjs/i18n": "^10.3.0",
+    "keen-slider": "^6.8.6"
   }
 }
