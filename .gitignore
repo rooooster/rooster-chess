@@ -1,5 +1,21 @@
 node_modules/
 _site/
 
+# Jekyll legacy build outputs (kept until Task 15 cleanup)
 assets/css/
 assets/js/
+
+# Nuxt
+.nuxt/
+.output/
+.data/
+.env
+.netlify/
+dist/
+
+# Misc
+*.log
+.DS_Store
+
+# Local Claude skill symlink
+.claude/
