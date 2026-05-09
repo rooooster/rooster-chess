@@ -12,6 +12,8 @@ vi.stubGlobal(
       ({ Table: 'Table', ChessPieces: 'Chess Pieces', Game: 'Game', Team: 'Team' }[k] ?? k)
   }))
 )
+vi.stubGlobal('useScrollSpy', vi.fn(() => ({ active: { value: null } })))
+vi.stubGlobal('useLocalePath', vi.fn(() => (p: string) => p))
 
 const NuxtLinkStub = defineComponent({
   props: { to: { type: [String, Object], default: '' } },
