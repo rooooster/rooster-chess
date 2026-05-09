@@ -17,4 +17,10 @@ describe('i18n locale parity', () => {
       expect(Object.keys(dict).length, `locale ${name}`).toBeGreaterThanOrEqual(20)
     }
   })
+
+  it('ItsWar is the post-2026 wording (no longer "It\'s a War" / "Це війна")', () => {
+    expect(en.ItsWar).toBe("It's a Battle")
+    expect(ua.ItsWar).toBe('Це битва')
+    expect(pl.ItsWar).toBe('To bitwa')
+  })
 })
